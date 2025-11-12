@@ -1,4 +1,6 @@
 ﻿
+using System.Xml.Serialization;
+
 namespace PokemonSimulator.Pokemon
 {
     internal abstract class Pokemon
@@ -23,13 +25,13 @@ namespace PokemonSimulator.Pokemon
             set
             {
                 if (value < 1)
-                    throw new ArgumentException("Level måste vara minst 1.");
+                    throw new ArgumentException("Nivån måste vara minst 1.");
                 _level = value;
 
             }
         }
         public ElementType ElementType { get; set; } //set protected?
-        public List<Attack> Attacks { get; set; } //set inte behövs?
+        public List<Attack> Attacks { get; }
 
         protected Pokemon(string name, int level, List<Attack> attacks) 
         {
@@ -40,17 +42,27 @@ namespace PokemonSimulator.Pokemon
 
         public void RandomAttack()
         { 
-        
+            var random = new Random();
+            var attack = Attacks[random.Next(Attacks.Count)];
+            attack.Use(Level);
         }
 
         public void Attack()
-        { 
-        
+        {
+            Console.WriteLine($"Välj en attack för {Name}: ");
+            for (int i = 0; i < Attacks.Count; i++)
+                Console.WriteLine($"{i + 1}.{Attacks[i].Name}");
+
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= Attacks.Count)
+                Attacks[choice - 1].Use(Level);
+            else
+                Console.WriteLine("Ogiltig inmatning.");
         }
 
         public void RaiseLevel()
-        { 
-        
+        {
+            Level++;
+            Console.WriteLine($"{Name} har ökat sin nivå till {Level}!");
         }
 
 
