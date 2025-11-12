@@ -7,7 +7,7 @@ Attack ember = new Attack("Ember", ElementType.Fire, 6);
 Attack waterGun = new Attack("Water Gun", ElementType.Water, 5);
 Attack leafBlade = new Attack("Leaf Blade", ElementType.Grass, 4);
 
-Pokemon charmander = new Charmander(1, new List<Attack> { flamethrower, ember});
+Charmander charmander = new Charmander(1, new List<Attack> { flamethrower, ember});
 Squirtle squirtle = new Squirtle(2, new List<Attack>() { waterGun });
 Bulbasaur bulbasaur = new Bulbasaur(3, new List<Attack> { leafBlade });
 
@@ -17,6 +17,11 @@ charmander,
 squirtle,
 bulbasaur
 };
+
+charmander.Evolve();
+charmander.Evolve();
+charmander.Evolve();
+
 
 
 
