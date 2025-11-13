@@ -12,8 +12,5 @@ namespace PokemonSimulator.Pokemon
         {
             ElementType = ElementType.Grass;
         }
-
-
-
     }
 }

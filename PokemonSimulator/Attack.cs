@@ -16,7 +16,6 @@
         public void Use(int level)
         {
             Console.WriteLine($"{Name} hit with a total power of {BasePower + level}");
-
         }
     }
 }

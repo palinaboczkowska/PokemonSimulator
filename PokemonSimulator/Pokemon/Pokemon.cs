@@ -1,5 +1,4 @@
 ﻿
-using System.Xml.Serialization;
 
 namespace PokemonSimulator.Pokemon
 {
@@ -18,7 +17,7 @@ namespace PokemonSimulator.Pokemon
                 _name = value;
             }
         }
-        
+
         public int Level
         {
             get => _level;
@@ -27,18 +26,16 @@ namespace PokemonSimulator.Pokemon
                 if (value < 1)
                     throw new ArgumentException("Nivån måste vara minst 1.");
                 _level = value;
-
             }
         }
         public ElementType ElementType { get; protected set; }
         public List<Attack> Attacks { get; }
 
-        protected Pokemon(string name, int level, List<Attack> attacks) 
+        protected Pokemon(string name, int level, List<Attack> attacks)
         {
             Name = name;
             Level = level;
             Attacks = attacks ?? throw new ArgumentNullException(nameof(attacks));
-
         }
 
         public void RandomAttack()
@@ -56,7 +53,7 @@ namespace PokemonSimulator.Pokemon
         public void Attack()
         {
             if (Attacks == null || Attacks.Count == 0)
-            { 
+            {
                 Console.WriteLine($"{Name} har inga attacker att använda.");
                 return;
             }
@@ -64,7 +61,7 @@ namespace PokemonSimulator.Pokemon
             for (int i = 0; i < Attacks.Count; i++)
                 Console.WriteLine($"{i + 1}.{Attacks[i].Name}");
             int choice;
-            while(true)
+            while (true)
             {
                 if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= Attacks.Count)
                 {
@@ -81,8 +78,5 @@ namespace PokemonSimulator.Pokemon
             Level++;
             Console.WriteLine($"{Name} har ökat sin nivå till {Level}!");
         }
-
-
-    
     }
 }

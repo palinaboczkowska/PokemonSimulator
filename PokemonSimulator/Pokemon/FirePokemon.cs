@@ -7,7 +7,5 @@
         ElementType = ElementType.Fire;
         }
         
-            
-        
     }
 }

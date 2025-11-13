@@ -13,9 +13,9 @@ Bulbasaur bulbasaur = new Bulbasaur(3, new List<Attack> { leafBlade });
 
 List<Pokemon> pokemons = new List<Pokemon>
 {
-charmander,
-squirtle,
-bulbasaur
+    charmander,
+    squirtle,
+    bulbasaur
 };
 
 foreach (var pokemon in pokemons)
