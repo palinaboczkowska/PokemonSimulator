@@ -28,18 +28,33 @@ namespace PokemonSimulator.Pokemon
 
         public void Evolve()
         {
+            //Lösning utan lista med evolutioner
+            //Level += 10;
+            //if (Name == "Charmander")
+            //{
+            //    Name = "Charmeleon";
+            //    Console.WriteLine("Charmander har utvecklats.. Nu är det Charmeleon");
+            //}
+            //else if (Name == "Charmeleon")
+            //{
+            //    Name = "Charizard";
+            //    Console.WriteLine("Charmeleon har utvecklats.. Nu är det Charizard");
+            //}
+            //else
+            //    Console.WriteLine($"{Name} är redan i sin slutgiltiga form.");
+
             Level += 10; // alltid öka nivå, även om Pokemon är redan i sin slutgiltig form
             // Kontrollera om det finns en nästa utvecklingsfas
             if (_currentStageIndex < _evolutionStages.Count - 1)
             {
                 _currentStageIndex++; //nästa fas
-                Name = _evolutionStages[_currentStageIndex]; 
-                Console.WriteLine($"{_evolutionStages[_currentStageIndex- 1]} har utvecklats.. Nu är det {Name} och dess nivå är {Level}");
+                Name = _evolutionStages[_currentStageIndex];
+                Console.WriteLine($"{_evolutionStages[_currentStageIndex - 1]} har utvecklats.. Nu är det {Name} och dess nivå är {Level}");
             }
             else
                 //Om Charizard
                 Console.WriteLine($"{Name} är redan i sin slutgiltiga form.");
-           
+
         }
     }
 }

@@ -25,7 +25,11 @@ foreach (var pokemon in pokemons)
         pokemon.Attack();
 
         if (pokemon is IEvolvable evolvable)
+        { 
             evolvable.Evolve();
+            evolvable.Evolve();
+            evolvable.Evolve();
+        }
     }
     catch (Exception ex)
     { 
