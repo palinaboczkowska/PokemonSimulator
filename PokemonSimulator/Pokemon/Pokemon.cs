@@ -30,18 +30,24 @@ namespace PokemonSimulator.Pokemon
 
             }
         }
-        public ElementType ElementType { get; set; } //set protected?
+        public ElementType ElementType { get; protected set; }
         public List<Attack> Attacks { get; }
 
         protected Pokemon(string name, int level, List<Attack> attacks) 
         {
             Name = name;
             Level = level;
-            Attacks = attacks; //null exception?
+            Attacks = attacks ?? throw new ArgumentNullException(nameof(attacks));
+
         }
 
         public void RandomAttack()
-        { 
+        {
+            if (Attacks == null || Attacks.Count == 0)
+            {
+                Console.WriteLine($"{Name} har inga attacker att använda.");
+                return;
+            }
             var random = new Random();
             var attack = Attacks[random.Next(Attacks.Count)];
             attack.Use(Level);
@@ -49,6 +55,11 @@ namespace PokemonSimulator.Pokemon
 
         public void Attack()
         {
+            if (Attacks == null || Attacks.Count == 0)
+            { 
+                Console.WriteLine($"{Name} har inga attacker att använda.");
+                return;
+            }
             Console.WriteLine($"Välj en attack för {Name}: ");
             for (int i = 0; i < Attacks.Count; i++)
                 Console.WriteLine($"{i + 1}.{Attacks[i].Name}");
