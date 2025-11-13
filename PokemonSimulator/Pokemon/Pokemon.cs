@@ -52,11 +52,17 @@ namespace PokemonSimulator.Pokemon
             Console.WriteLine($"Välj en attack för {Name}: ");
             for (int i = 0; i < Attacks.Count; i++)
                 Console.WriteLine($"{i + 1}.{Attacks[i].Name}");
-
-            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= Attacks.Count)
-                Attacks[choice - 1].Use(Level);
-            else
-                Console.WriteLine("Ogiltig inmatning.");
+            int choice;
+            while(true)
+            {
+                if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= Attacks.Count)
+                {
+                    Attacks[choice - 1].Use(Level);
+                    break;
+                }
+                else
+                    Console.WriteLine("Ogiltig inmatning. Ange numret på attacken: ");
+            }
         }
 
         public void RaiseLevel()
