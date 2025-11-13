@@ -13,7 +13,7 @@ namespace PokemonSimulator.Pokemon
             set
             {
                 if (value.Length < 2 || value.Length > 15)
-                    throw new ArgumentException("Namnet måste vara mellan 2 och 15 tecken långt.");
+                    throw new ArgumentException("Name must be between 2 and 15 characters long.");
                 _name = value;
             }
         }
@@ -24,7 +24,7 @@ namespace PokemonSimulator.Pokemon
             set
             {
                 if (value < 1)
-                    throw new ArgumentException("Nivån måste vara minst 1.");
+                    throw new ArgumentException("Level must be at least 1.");
                 _level = value;
             }
         }
@@ -42,7 +42,7 @@ namespace PokemonSimulator.Pokemon
         {
             if (Attacks == null || Attacks.Count == 0)
             {
-                Console.WriteLine($"{Name} har inga attacker att använda.");
+                Console.WriteLine($"{Name} has no attacks to use.");
                 return;
             }
             var random = new Random();
@@ -54,10 +54,10 @@ namespace PokemonSimulator.Pokemon
         {
             if (Attacks == null || Attacks.Count == 0)
             {
-                Console.WriteLine($"{Name} har inga attacker att använda.");
+                Console.WriteLine($"{Name} has no attacks to use.");
                 return;
             }
-            Console.WriteLine($"Välj en attack för {Name}: ");
+            Console.WriteLine($"Choose an attack for {Name}: ");
             for (int i = 0; i < Attacks.Count; i++)
                 Console.WriteLine($"{i + 1}.{Attacks[i].Name}");
             int choice;
@@ -69,14 +69,14 @@ namespace PokemonSimulator.Pokemon
                     break;
                 }
                 else
-                    Console.WriteLine("Ogiltig inmatning. Ange numret på attacken: ");
+                    Console.WriteLine("Invalid input. Please enter a valid attack number.");
             }
         }
 
         public void RaiseLevel()
         {
             Level++;
-            Console.WriteLine($"{Name} har ökat sin nivå till {Level}!");
+            Console.WriteLine($"{Name} has leveled up to {Level}!");
         }
     }
 }

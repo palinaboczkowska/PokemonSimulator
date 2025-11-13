@@ -1,40 +1,40 @@
 ﻿
 namespace PokemonSimulator.Pokemon
 {
-    internal class Charmander : FirePokemon, IEvolvable //kan utvecklas
+    internal class Charmander : FirePokemon, IEvolvable
     {
-        // Lista över möjliga evolutioner i ordning. Här används tre steg av utveckling
-        //Jag vet inte om det var tänkt på så sätt enligt uppgiften
+        // Ordered list of evolution stages: Charmander - Charmeleon - Charizard
         private List<string> _evolutionStages = new List<string>
         {
-            "Charmander", //startnamn
+            "Charmander", //initial name
             "Charmeleon",
             "Charizard"
         };
-        // Index som håller reda på vilken utvecklingsfas Pokemon befinner sig i
+        // Index to track the current evolution stage
         private int _currentStageIndex = 0;
         public Charmander(int level, List<Attack> attacks) : base("Charmander", level, attacks)
         {
-            // Sätter namnet till den första evolution
+            // Set the name to the first evolution stage
             Name = _evolutionStages[_currentStageIndex];
         }
 
 
         public void Evolve()
         {
-            //I github historiken finns en lösning utan listan med evolutioner
+            // There is a solution in the GitHub history that doesn't use a list of evolutions
 
-            Level += 10; // alltid öka nivå, även om Pokemon är redan i sin slutgiltig form
-            // Kontrollera om det finns en nästa utvecklingsfas
+            // Always increase level, even if already fully evolved
+            Level += 10;
+            // Check if there is a next evolution stage
             if (_currentStageIndex < _evolutionStages.Count - 1)
             {
-                _currentStageIndex++; //nästa fas
+                _currentStageIndex++; //next stage
                 Name = _evolutionStages[_currentStageIndex];
-                Console.WriteLine($"{_evolutionStages[_currentStageIndex - 1]} har utvecklats.. Nu är det {Name} och dess nivå är {Level}");
+                Console.WriteLine($"{_evolutionStages[_currentStageIndex - 1]} is evolving...Now it is a {Name} and its level is {Level}");
             }
             else
-                //Om Charizard
-                Console.WriteLine($"{Name} är redan i sin slutgiltiga form.");
+                //Already at final form (Charizard)
+                Console.WriteLine($"{Name} is already in its final form.");
         }
     }
 }
