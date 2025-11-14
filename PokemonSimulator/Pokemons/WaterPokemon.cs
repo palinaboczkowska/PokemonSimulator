@@ -1,4 +1,6 @@
-﻿namespace PokemonSimulator.Pokemon
+﻿using PokemonSimulator.Attacks;
+
+namespace PokemonSimulator
 {
     internal abstract class WaterPokemon : Pokemon
     {

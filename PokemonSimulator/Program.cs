@@ -1,6 +1,5 @@
 ﻿
 using PokemonSimulator;
-using PokemonSimulator.Pokemon;
 
 Attack flamethrower = new Attack("Flamethrower", ElementType.Fire, 12);
 Attack ember = new Attack("Ember", ElementType.Fire, 6);

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using PokemonSimulator.Attacks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonSimulator.Pokemon
+namespace PokemonSimulator
 {
     internal abstract class GrassPokemon : Pokemon
     {

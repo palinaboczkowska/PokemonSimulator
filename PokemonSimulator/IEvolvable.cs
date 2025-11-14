@@ -8,6 +8,6 @@ namespace PokemonSimulator
 {
     internal interface IEvolvable
     {
-        void Evolve();
+        Pokemon Evolve();
     }
 }
