@@ -1,6 +1,4 @@
-﻿
-
-namespace PokemonSimulator.Pokemon
+﻿namespace PokemonSimulator.Pokemon
 {
     internal class WaterPokemon : Pokemon
     {

@@ -1,4 +1,4 @@
-﻿namespace PokemonSimulator
+﻿namespace PokemonSimulator.Attack
 {
     internal class Attack
     {
@@ -13,7 +13,7 @@
             BasePower = basePower;
         }
 
-        public void Use(int level)
+        public virtual void Use(int level)
         {
             Console.WriteLine($"{Name} hit with a total power of {BasePower + level}");
         }

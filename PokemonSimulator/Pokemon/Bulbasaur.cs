@@ -1,5 +1,4 @@
-﻿
-namespace PokemonSimulator.Pokemon
+﻿namespace PokemonSimulator.Pokemon
 {
     internal class Bulbasaur : GrassPokemon
     {
