@@ -73,10 +73,11 @@ namespace PokemonSimulator
             }
         }
 
-        public void RaiseLevel()
+        public virtual Pokemon RaiseLevel()
         {
             Level++;
             Console.WriteLine($"{Name} has leveled up to {Level}!");
+            return this; //return current Pokemon
         }
 
         public virtual void Speak()

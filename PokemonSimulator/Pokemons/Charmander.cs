@@ -4,6 +4,7 @@ namespace PokemonSimulator
 {
     internal class Charmander : FirePokemon, IEvolvable
     {
+        private int _evolveAtLevel = 16;
         // Ordered list of evolution stages: Charmander - Charmeleon - Charizard
         private List<string> _evolutionStages = new List<string>
         {
@@ -19,16 +20,24 @@ namespace PokemonSimulator
             Name = _evolutionStages[_currentStageIndex];
         }
 
-
-        public Pokemon Evolve()
-        {
-            Console.WriteLine($"{Name} is evolving into Charmeleon!");
-            return new Charmeleon(Level, Attacks);
-        }
+        public Pokemon Evolve() => new Charmeleon(Level, Attacks);
+     
 
         public override void Speak()
         {
             Console.WriteLine($"{Name} says: Char char!");
+        }
+
+        // Override RaiseLevel to check for evolution
+        public override Pokemon RaiseLevel()
+        {
+            base.RaiseLevel(); //increase level normally
+            if (Level >= _evolveAtLevel) 
+            {
+                Console.WriteLine($"{Name} is evolving into Charmeleon!");
+                return Evolve();
+            }
+            return this; //no evolition yet
         }
     }
 }
