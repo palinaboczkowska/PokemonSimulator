@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonSimulator.Attack
+namespace PokemonSimulator
 {
     internal class LegendaryAttack : Attack
     {

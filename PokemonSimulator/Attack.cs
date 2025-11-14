@@ -1,4 +1,4 @@
-﻿namespace PokemonSimulator.Attack
+﻿namespace PokemonSimulator
 {
     internal class Attack
     {
