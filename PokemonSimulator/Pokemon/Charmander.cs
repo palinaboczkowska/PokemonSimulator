@@ -35,5 +35,10 @@
                 //Already at final form (Charizard)
                 Console.WriteLine($"{Name} is already in its final form.");
         }
+
+        public override void Speak()
+        {
+            Console.WriteLine($"{Name} says: Char char!");
+        }
     }
 }

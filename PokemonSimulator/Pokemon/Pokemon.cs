@@ -76,5 +76,10 @@
             Level++;
             Console.WriteLine($"{Name} has leveled up to {Level}!");
         }
+
+        public virtual void Speak()
+        {
+            Console.WriteLine($"{Name} says ... ");
+        }
     }
 }
