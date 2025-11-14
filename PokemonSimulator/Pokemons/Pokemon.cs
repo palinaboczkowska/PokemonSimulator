@@ -1,5 +1,4 @@
-﻿using PokemonSimulator.Attacks;
-
+﻿
 namespace PokemonSimulator
 {
     internal abstract class Pokemon

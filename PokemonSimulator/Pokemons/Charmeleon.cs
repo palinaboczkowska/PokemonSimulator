@@ -14,7 +14,7 @@ namespace PokemonSimulator
 
         public override void Speak()
         {
-            Console.WriteLine("Charmeleon says: Chaaar!");
+            Console.WriteLine("Charmeleon says: Charme charme!");
         }
 
         // Override RaiseLevel to check for evolution

@@ -14,9 +14,9 @@ LegendaryAttack legendaryLeafBlade = new LegendaryAttack(leafBlade);
 
 
 
-Charmander charmander = new Charmander(1, new List<Attack> { flamethrower, ember});
-Squirtle squirtle = new Squirtle(2, new List<Attack>() { waterGun });
-Bulbasaur bulbasaur = new Bulbasaur(3, new List<Attack> { leafBlade });
+Charmander charmander = new Charmander(12, new List<Attack> { flamethrower, ember});
+Squirtle squirtle = new Squirtle(13, new List<Attack>() { waterGun });
+Bulbasaur bulbasaur = new Bulbasaur(11, new List<Attack> { leafBlade });
 
 List<Pokemon> pokemons = new List<Pokemon>
 {
@@ -25,24 +25,29 @@ List<Pokemon> pokemons = new List<Pokemon>
     bulbasaur
 };
 
-foreach (var pokemon in pokemons)
+foreach (var original in pokemons)
 {
-    try {
-        pokemon.RaiseLevel();
-        pokemon.Attack();
+    Pokemon current = original;
 
-        if (pokemon is IEvolvable evolvable)
-        { 
-            evolvable.Evolve();
-            evolvable.Evolve();
-            evolvable.Evolve();
-        }
+    Console.WriteLine($"\n--- Starting with {current.Name} ---");
+
+    // Initial behavior
+    current.Speak();
+    current.Attack();
+
+    // Simulate level-ups
+    for (int i = 0; i < 25; i++) // enough to trigger evolution
+    {
+        current = current.RaiseLevel(); // evolution happens inside RaiseLevel()
     }
-    catch (Exception ex)
-    { 
-        Console.WriteLine(ex);
-    }
+
+    Console.WriteLine($"\n--- After leveling ---");
+    Console.WriteLine($"Current form: {current.Name}, Level: {current.Level}");
+    current.Speak();
+    current.Attack();
 }
+
+
 
 
 
