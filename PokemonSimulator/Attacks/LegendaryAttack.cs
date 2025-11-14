@@ -11,7 +11,7 @@ namespace PokemonSimulator
     {
         // Minimum level required to use this legendary attack
         private readonly int _requiredLevel;
-        public LegendaryAttack(Attack baseAttack, int requiredLevel = 10) //supposing initial value
+        public LegendaryAttack(Attack baseAttack, int requiredLevel = 10)
             : base(baseAttack.Name, baseAttack.ElementType, baseAttack.BasePower)
         {
             _requiredLevel = requiredLevel;

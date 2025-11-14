@@ -39,9 +39,11 @@ namespace PokemonSimulator
 
         // Returns the legendary version of an attack based on the Pokemon's level
         // If the level is high enough, the attack is automatically upgraded to legendary
+        // Currently, all attacks are upgraded to legendary versions once the Pokemon reaches level 10
+
         protected virtual Attack GetLegendaryAttack (Attack baseAttack)
         {
-            if (Level >= 10) //supposing
+            if (Level >= 10)
                 return new LegendaryAttack(baseAttack, 10);
 
             return baseAttack;
