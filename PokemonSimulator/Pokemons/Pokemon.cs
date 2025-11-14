@@ -37,6 +37,17 @@ namespace PokemonSimulator
             Attacks = attacks ?? throw new ArgumentNullException(nameof(attacks));
         }
 
+        // Returns the legendary version of an attack based on the Pokemon's level
+        // If the level is high enough, the attack is automatically upgraded to legendary
+        protected virtual Attack GetLegendaryAttack (Attack baseAttack)
+        {
+            if (Level >= 10) //supposing
+                return new LegendaryAttack(baseAttack, 10);
+
+            return baseAttack;
+
+        }
+
         public void RandomAttack()
         {
             if (Attacks == null || Attacks.Count == 0)
@@ -45,8 +56,11 @@ namespace PokemonSimulator
                 return;
             }
             var random = new Random();
-            var attack = Attacks[random.Next(Attacks.Count)];
-            attack.Use(Level);
+            var baseAttack = Attacks[random.Next(Attacks.Count)];
+            // Automatically upgrade attack if level is high enough
+            var legendaryAttack = GetLegendaryAttack(baseAttack);
+            legendaryAttack.Use(Level);
+
         }
 
         public void Attack()
@@ -64,7 +78,11 @@ namespace PokemonSimulator
             {
                 if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= Attacks.Count)
                 {
-                    Attacks[choice - 1].Use(Level);
+                    var baseAttack = Attacks[choice - 1];
+
+                    // Automatically upgrade attack if level is high enough
+                    var legendaryAttack = GetLegendaryAttack(baseAttack);
+                    legendaryAttack.Use(Level);
                     break;
                 }
                 else

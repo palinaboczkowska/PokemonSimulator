@@ -8,15 +8,16 @@ Attack aquaTail = new Attack("Aqua Tail", ElementType.Water, 7);
 Attack leafBlade = new Attack("Leaf Blade", ElementType.Grass, 4);
 Attack powerWhip = new Attack("Power Whip", ElementType.Grass, 11);
 
-LegendaryAttack legendaryEmber = new LegendaryAttack(ember);
-LegendaryAttack legendaryWaterGun = new LegendaryAttack(waterGun);
-LegendaryAttack legendaryLeafBlade = new LegendaryAttack(leafBlade);
+// Legendary attacks are automatically created inside GetEffectiveAttack()
+//LegendaryAttack legendaryEmber = new LegendaryAttack(ember, 15);
+//LegendaryAttack legendaryWaterGun = new LegendaryAttack(waterGun, 15);
+//LegendaryAttack legendaryLeafBlade = new LegendaryAttack(leafBlade, 15);
 
 
 
-Charmander charmander = new Charmander(12, new List<Attack> { flamethrower, ember});
-Squirtle squirtle = new Squirtle(13, new List<Attack>() { waterGun });
-Bulbasaur bulbasaur = new Bulbasaur(11, new List<Attack> { leafBlade });
+Charmander charmander = new Charmander(8, new List<Attack> { flamethrower, ember});
+Squirtle squirtle = new Squirtle(7, new List<Attack>() { waterGun});
+Bulbasaur bulbasaur = new Bulbasaur(11, new List<Attack> { leafBlade});
 
 List<Pokemon> pokemons = new List<Pokemon>
 {
@@ -36,7 +37,7 @@ foreach (var original in pokemons)
     current.Attack();
 
     // Simulate level-ups
-    for (int i = 0; i < 25; i++) // enough to trigger evolution
+    for (int i = 0; i < 30; i++) // enough to trigger evolution
     {
         current = current.RaiseLevel(); // evolution happens inside RaiseLevel()
     }
@@ -46,10 +47,3 @@ foreach (var original in pokemons)
     current.Speak();
     current.Attack();
 }
-
-
-
-
-
-
-
